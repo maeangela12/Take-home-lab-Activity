@@ -1,0 +1,36 @@
+class Program
+{
+    static void Main()
+    {
+        List<string> studentNames = new List<string>();
+        string input;
+
+        Console.WriteLine("Enter student names (type 'done' to finish):");
+        while (true)
+        {
+            input = Console.ReadLine();
+            if (input.ToLower() == "done")
+            {
+                break;
+            }
+            studentNames.Add(input);
+        }
+
+        Console.WriteLine("\nStudent Names in Uppercase:");
+        foreach (string name in studentNames)
+        {
+            Console.WriteLine(name.ToUpper());
+        }
+
+        int countA = 0;
+        foreach (string name in studentNames)
+        {
+            if (name.StartsWith("A", StringComparison.OrdinalIgnoreCase))
+            {
+                countA++;
+            }
+        }
+
+        Console.WriteLine($"\nNumber of names starting with 'A': {countA}");
+    }
+}
