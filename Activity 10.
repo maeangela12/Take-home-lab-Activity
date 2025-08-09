@@ -1,0 +1,41 @@
+using System;
+using System.Linq;
+
+using System;
+using System.Collections.Generic;
+
+
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numbers = new List<int>();
+        List<int> evenList = new List<int>();
+        List<int> oddList = new List<int>();
+
+        Console.WriteLine("Enter 12 numbers:");
+
+        for (int i = 0; i < 12; i++)
+        {
+            Console.Write($"Number #{i + 1}: ");
+            int num = int.Parse(Console.ReadLine());
+            numbers.Add(num);
+
+            if (num % 2 == 0)
+                evenList.Add(num);
+            else
+                oddList.Add(num);
+        }
+
+
+        Console.WriteLine("\nOriginal numbers:");
+        Console.WriteLine(string.Join(", ", numbers));
+
+        Console.WriteLine("\nEven numbers:");
+        Console.WriteLine(string.Join(", ", evenList));
+
+        Console.WriteLine("\nOdd numbers:");
+        Console.WriteLine(string.Join(", ", oddList));
+    }
+}
