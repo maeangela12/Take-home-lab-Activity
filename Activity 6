@@ -1,0 +1,40 @@
+using System;
+using System.Linq;
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<string> cities = new List<string>();
+        string input;
+
+        Console.WriteLine("Enter city names (type 'exit' to finish):");
+
+        while (true)
+        {
+            Console.Write("City: ");
+            input = Console.ReadLine();
+
+            if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                break;
+
+            cities.Add(input);
+        }
+
+
+        List<string> sortedCities = cities
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderBy(city => city, StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+
+        Console.WriteLine("\nCities in alphabetical order:");
+        foreach (string city in sortedCities)
+        {
+            Console.WriteLine(city);
+        }
+    }
+}
