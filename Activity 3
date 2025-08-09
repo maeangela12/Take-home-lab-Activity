@@ -1,0 +1,35 @@
+class UsernameSearch
+{
+    static void Main()
+    {
+
+        List<string> userNames = new List<string>();
+
+
+        Console.WriteLine("Enter five(5) usernames:");
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Username # {i + 1} : ");
+            string userName = Console.ReadLine();
+            userNames.Add(userName);
+        }
+
+        // Ask for a character to search  
+        Console.Write("Enter a character to search for in usernames: ");
+        string searchChar = Console.ReadLine();
+
+        // Convert search character to lowercase   
+        char searchCharacter = char.ToLower(searchChar[0]);
+
+        // Filter and display matched usernames  
+        Console.WriteLine("\nMatched character:");
+        foreach (string search in userNames)
+        {
+            if (search.ToLower().Contains(searchCharacter))
+            {
+                Console.WriteLine(search.ToLower());
+            }
+        }
+    }
+}
+
