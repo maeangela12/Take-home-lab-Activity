@@ -1,0 +1,42 @@
+using System;
+using System.Linq;
+
+using System.Collections.Generic;
+
+
+
+class Program
+{
+    static void Main()
+    {
+
+        List<string> countries = new List<string>();
+        List<string> capitals = new List<string>();
+
+        countries.Add("Philippines"); capitals.Add("Manila");
+        countries.Add("Japan"); capitals.Add("Tokyo");
+        countries.Add("France"); capitals.Add("Paris");
+        countries.Add("Germany"); capitals.Add("Berlin");
+        countries.Add("Brazil"); capitals.Add("Brasilia");
+
+        Console.Write("Enter a country name: ");
+        string isCountry = Console.ReadLine();
+        bool found = false;
+
+        
+        for (int i = 0; i < countries.Count; i++)
+        {
+            if (countries[i].Equals(isCountry, StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"The capital of {countries[i]} is {capitals[i]}.");
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("Country not found.");
+        }
+    }
+}
