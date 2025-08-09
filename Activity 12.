@@ -1,0 +1,48 @@
+using System;
+using System.Linq;
+
+using System.Collections.Generic;
+
+
+
+class Program
+{
+    static void Main()
+    {
+
+        List<string> productNames = new List<string>();
+        List<int> productStocks = new List<int>();
+
+        Console.WriteLine("Enter 10 product names and their stock counts:");
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Product {i + 1} name: ");
+            string name = Console.ReadLine();
+            productNames.Add(name);
+
+            int stock;
+            Console.Write($"Stock count for {name}: ");
+            while (!int.TryParse(Console.ReadLine(), out stock))
+            {
+                Console.WriteLine("Invalid input. Please enter a valid stock count.");
+                Console.Write($"Stock count for {name}: ");
+            }
+            productStocks.Add(stock);
+        }
+
+        Console.WriteLine("\nFinal stock levels:");
+        for (int i = 0; i < productStocks.Count; i++)
+        {
+            if (productStocks[i] < 10)
+            {
+                productStocks[i] += 20;
+                Console.WriteLine($"{productNames[i]}: {productStocks[i]} (Restocked)");
+            }
+            else
+            {
+                Console.WriteLine($"{productNames[i]}: {productStocks[i]}");
+            }
+        }
+    }
+}
